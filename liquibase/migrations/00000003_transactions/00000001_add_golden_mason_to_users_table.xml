@@ -1,0 +1,61 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+<changeSet id="00000001_add_golden_mason_to_users_table" author="Taras Andreiko">
+        <insert tableName="users">
+            <column name="username" value="gold1"/>
+            <column name="email" value="gold1@gmail.com"/>
+            <column name="password" value="$2b$12$9XHpFbGeBKQQUswJGvDtZO16mIKUDXUzh4axf3bCKNTFtoZkdrPu6"/>
+            <column name="role" value="GoldMason"/>
+        </insert>
+
+       <insert tableName="users">
+            <column name="username" value="gold2"/>
+            <column name="email" value="gold2@gmail.com"/>
+            <column name="password" value="$2b$12$9XHpFbGeBKQQUswJGvDtZO16mIKUDXUzh4axf3bCKNTFtoZkdrPu6"/>
+            <column name="role" value="GoldMason"/>
+            <column name="is_inquisitor" value="1"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="gold3"/>
+            <column name="email" value="gold3@gmail.com"/>
+            <column name="password" value="$2b$12$9XHpFbGeBKQQUswJGvDtZO16mIKUDXUzh4axf3bCKNTFtoZkdrPu6"/>
+            <column name="role" value="GoldMason"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="gold4"/>
+            <column name="email" value="gold4@gmail.com"/>
+            <column name="password" value="$2b$12$9XHpFbGeBKQQUswJGvDtZO16mIKUDXUzh4axf3bCKNTFtoZkdrPu6"/>
+            <column name="role" value="GoldMason"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="gold5"/>
+            <column name="email" value="gold5@gmail.com"/>
+            <column name="password" value="$2b$12$9XHpFbGeBKQQUswJGvDtZO16mIKUDXUzh4axf3bCKNTFtoZkdrPu6"/>
+            <column name="role" value="GoldMason"/>
+        </insert>
+
+        <rollback>
+            <delete tableName="users">
+                <where>username = 'gold1'</where>
+            </delete>
+            <delete tableName="users">
+                <where>username = 'gold2'</where>
+            </delete>
+            <delete tableName="users">
+                <where>username = 'gold3'</where>
+            </delete>
+            <delete tableName="users">
+                <where>username = 'gold4'</where>
+            </delete>
+            <delete tableName="users">
+                <where>username = 'gold5'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

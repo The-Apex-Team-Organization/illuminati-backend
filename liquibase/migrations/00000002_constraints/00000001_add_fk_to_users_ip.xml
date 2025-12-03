@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000001_add_fk_to_users_ip" author="Taras Andreiko">
+        <addForeignKeyConstraint 
+            baseTableName="users_ip"
+            baseColumnNames="user_id"
+            referencedTableName="users"
+            referencedColumnNames="id"
+            onDelete="CASCADE"
+            constraintName="fk_users_ip_user_id"
+        />
+        
+        <rollback>
+            <dropForeignKeyConstraint 
+                baseTableName="users_ip"
+                constraintName="fk_users_ip_user_id"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

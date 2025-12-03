@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="00000005_add_default_data_to_users_promotions_table" author="Taras Andreiko">
+        <insert tableName="users_promotions">
+            <column name = "user_id" value = "1"/>
+            <column name = "date_of_last_promotion" valueDate = "2025-08-28"/>
+            <column name = "is_promote_requested" valueBoolean = "false"/>
+        </insert>
+
+        <insert tableName="users_promotions">
+            <column name = "user_id" value = "2"/>
+            <column name = "date_of_last_promotion" valueDate = "2025-09-02"/>
+            <column name = "is_promote_requested" valueBoolean = "false"/>
+        </insert>
+
+        <insert tableName="users_promotions">
+            <column name = "user_id" value = "3"/>
+            <column name = "date_of_last_promotion" valueDate = "2025-09-04"/>
+            <column name = "is_promote_requested" valueBoolean = "false"/>
+        </insert>
+
+        <insert tableName="users_promotions">
+            <column name = "user_id" value = "4"/>
+            <column name = "date_of_last_promotion" valueDate = "2025-09-09"/>
+            <column name = "is_promote_requested" valueBoolean = "false"/>
+        </insert>
+
+        <insert tableName="users_promotions">
+            <column name = "user_id" value = "5"/>
+            <column name = "date_of_last_promotion" valueDate = "2025-08-15"/>
+            <column name = "is_promote_requested" valueBoolean = "false"/>
+        </insert>
+
+        <rollback>
+            <delete tableName = "users_promotions">
+                <where>user_id = 1</where>
+            </delete>
+            <delete tableName = "users_promotions">
+                <where>user_id = 2</where>
+            </delete>
+            <delete tableName = "users_promotions">
+                <where>user_id = 3</where>
+            </delete>
+            <delete tableName = "users_promotions">
+                <where>user_id = 4</where>
+            </delete>
+            <delete tableName = "users_promotions">
+                <where>user_id = 5</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

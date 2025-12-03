@@ -1,2 +1,3 @@
-# illuminati-backend
-Repository for automation setup
+# README
+
+This repo created by Terraform

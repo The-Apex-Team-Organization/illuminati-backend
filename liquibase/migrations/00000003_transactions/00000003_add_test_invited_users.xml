@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000003_add_test_invited_users" author="Taras Andreiko">
+
+        <insert tableName="invited_users">
+            <column name="email" value="test1@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test2@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test3@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test4@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test5@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test6@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test7@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test8@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test9@email.com"/>
+        </insert>
+        <insert tableName="invited_users">
+            <column name="email" value="test10@email.com"/>
+        </insert>
+
+        <rollback>
+            <delete tableName="invited_users">
+                <where>email IN (
+                    'test1@email.com',
+                    'test2@email.com',
+                    'test3@email.com',
+                    'test4@email.com',
+                    'test5@email.com',
+                    'test6@email.com',
+                    'test7@email.com',
+                    'test8@email.com',
+                    'test9@email.com',
+                    'test10@email.com'
+                )</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

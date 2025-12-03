@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000007_create_vote_types_table" author="Taras Andreiko">
+        <createTable tableName="vote_types">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_vote_types_id"/>
+            </column>
+
+            <column name="vote_type" type="ENUM('PROMOTE_TO_SILVER', 'PROMOTE_TO_GOLDEN', 'PROMOTE_TO_ARCHITECT', 'BAN_USER')">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="user_role" type="ENUM('Mason', 'SilverMason', 'GoldMason')">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="vote_types"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
