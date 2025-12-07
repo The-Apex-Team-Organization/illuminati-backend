@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000010_create_record_activity_user_table" author="Oleh Bulka">
+        <createTable tableName="record_activity_user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_record_activity_user"/>
+            </column>
+
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="record_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="like_status" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="record_activity_user" columnNames="user_id, record_id" constraintName="uq_record_activity_user_user_record"/>
+
+        <addForeignKeyConstraint baseTableName="record_activity_user" baseColumnNames="record_id"
+            referencedTableName="records" referencedColumnNames="id" constraintName="fk_record_activity_user_record"/>
+    </changeSet>
+</databaseChangeLog>
+
+

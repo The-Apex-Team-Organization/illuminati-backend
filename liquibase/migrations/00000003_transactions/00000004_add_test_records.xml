@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000004_add_test_records" author="Oleh Bulka">
+
+        <insert tableName="records">
+            <column name="name" value="Test Record 1"/>
+            <column name="x" valueNumeric="49.8397"/>
+            <column name="y" valueNumeric="24.0297"/>
+            <column name="type" value="UFO"/>
+            <column name="description" value="UFO near Lviv center"/>
+            <column name="img_path" value="temporary path"/>
+            <column name="additional_info" value="Generated via Liquibase"/>
+        </insert>
+
+        <insert tableName="records">
+            <column name="name" value="Test Record 2"/>
+            <column name="x" valueNumeric="49.8420"/>
+            <column name="y" valueNumeric="24.0325"/>
+            <column name="type" value="BIGFOOT"/>
+            <column name="description" value="BIG FOOT"/>
+            <column name="img_path" value="temporary path"/>
+            <column name="additional_info" value="Generated via Liquibase"/>
+        </insert>
+
+        <rollback>
+            <delete tableName="records">
+                <where>name IN ('Test Record 1', 'Test Record 2')</where>
+            </delete>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>
+

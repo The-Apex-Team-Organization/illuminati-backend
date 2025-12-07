@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000004_create_prohibited_ip_table" author="Taras Andreiko">
+        <createTable tableName="prohibited_ip">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_prohibited_ip_id"/>
+            </column>
+
+            <column name="ip_address" type="TEXT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+        </createTable>
+
+
+        <rollback>
+            <dropTable tableName="prohibited_ip"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

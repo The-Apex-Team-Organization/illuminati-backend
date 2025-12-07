@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="00000003_add_test_hall_of_fame_records" author="Oleh Bulka">
+
+        <insert tableName="hall_of_fame">
+            <column name="username" value="oleh"/>
+            <column name="email" value="oleh@gmail.com"/>
+        </insert>
+        <rollback>
+            <delete tableName="hall_of_fame">
+                <where>email IN (
+                    'oleh@gmail.com',
+                )</where>
+            </delete>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>
+
